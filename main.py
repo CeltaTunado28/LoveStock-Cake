@@ -12,16 +12,12 @@ console = Console()
 ARQUIVO_ESTOQUE = "estoque.json"
 ARQUIVO_RECEITAS = "receita.json"
 
-# =========================
-# MENU COM SETAS
-# =========================
 
 def menu_setas(opcoes, titulo=""):
     atual = 0
 
     while True:
-        os.system("cls")  # limpa corretamente no Windows
-
+        os.system("cls")  
         linhas = []
         for i, opcao in enumerate(opcoes):
             if i == atual:
@@ -46,9 +42,6 @@ def menu_setas(opcoes, titulo=""):
 
         atual %= len(opcoes)
 
-# =========================
-# UTIL
-# =========================
 
 def carregar_json(nome_arquivo):
     try:
@@ -80,9 +73,6 @@ def input_float(mensagem):
         except:
             console.print("[red]Número inválido[/red]")
 
-# =========================
-# ESTOQUE
-# =========================
 
 def mostrar_estoque(estoque):
     tabela = Table(title="Estoque")
@@ -136,9 +126,7 @@ def menu_estoque():
         elif opcao == 4:
             break
 
-# =========================
-# RECEITAS
-# =========================
+
 
 def mostrar_receitas(receitas):
     if not receitas:
@@ -226,9 +214,6 @@ def menu_receitas():
         elif opcao == 4:
             break
 
-# =========================
-# PRODUÇÃO
-# =========================
 
 def menu_producao():
     estoque = carregar_json(ARQUIVO_ESTOQUE)
@@ -260,9 +245,6 @@ def menu_producao():
     console.print("[green]Produção concluída[/green]")
     input("Enter...")
 
-# =========================
-# MAIN
-# =========================
 
 def main():
     while True:
