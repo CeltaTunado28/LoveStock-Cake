@@ -299,7 +299,7 @@ def main():
     while True:
         opcao = menu_setas(
             ['Estoque', 'Receitas', 'Produção', 'Sair'],
-            "LOVING CAKE"
+            "LoveStock Cake"
         )
 
         if opcao == 0:
