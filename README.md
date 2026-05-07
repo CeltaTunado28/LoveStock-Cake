@@ -95,23 +95,19 @@ O programa possui feedback sonoro para melhorar a experiência:
 
 ## Instalação
 
-### 1. Clone o repositório
+### 1. Baixe os arquivos do projeto
+
+Coloque os arquivos abaixo na mesma pasta:
 
 ```bash
-git clone https://github.com/seu-usuario/lovestock-cake.git
+main.py
+estoque.json
+receita.json
 ```
 
 ---
 
-### 2. Entre na pasta
-
-```bash
-cd lovestock-cake
-```
-
----
-
-### 3. Instale as dependências
+### 2. Instale as dependências
 
 ```bash
 pip install rich
