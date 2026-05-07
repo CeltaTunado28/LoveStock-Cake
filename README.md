@@ -131,9 +131,13 @@ Os dados são armazenados automaticamente em arquivos JSON.
 
 ```json
 {
-    "farinha": 5,
-    "ovos": 12,
-    "leite": 2
+    "farinha": 5000,
+    "açucar": 4000,
+    "ovos": 100,
+    "leite": 3000,
+    "fermento": 200,
+    "chocolate": 1500,
+    "manteiga": 500
 }
 ```
 
@@ -141,11 +145,28 @@ Os dados são armazenados automaticamente em arquivos JSON.
 
 ```json
 {
-    "bolo_chocolate": {
-        "farinha": 1,
-        "ovos": 3,
-        "leite": 0.5
-    }
+  "bolo_simples": {
+    "farinha": 200,
+    "açucar": 150,
+    "ovos": 3,
+    "leite": 200,
+    "fermento": 10
+  },
+
+  "bolo_chocolate": {
+    "farinha": 200,
+    "aucar": 150,
+    "ovos": 3,
+    "leite": 200,
+    "chocolate": 100,
+    "fermento": 10
+  },
+
+  "brigadeiro": {
+    "leite": 200,
+    "chocolate": 150,
+    "manteiga": 20
+  }
 }
 ```
 
