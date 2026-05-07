@@ -1,5 +1,210 @@
-# Gerenciamento-de-Estoque
+# LoveStock Cake
 
-Depois coloco algo aqui...
+Sistema de gerenciamento de estoque, receitas e produção para confeitaria, desenvolvido em Python no terminal utilizando interface interativa com navegação por setas e visual moderno com Rich.
 
-Lembrar de usar cmd pra rodar
+---
+
+## Sobre o projeto
+
+O LoveStock Cake foi criado para facilitar o controle de ingredientes e receitas de uma confeitaria de forma simples, rápida e organizada.
+
+O sistema permite:
+
+- Gerenciar estoque de ingredientes
+- Criar e editar receitas
+- Produzir receitas automaticamente descontando ingredientes do estoque
+- Navegar por menus interativos usando teclado
+- Armazenar dados em arquivos JSON
+
+---
+
+## Tecnologias utilizadas
+
+- Python 3
+- JSON
+- Rich
+- Winsound
+- Msvcrt
+
+---
+
+## Estrutura do projeto
+
+```bash
+LoveStock-Cake/
+│
+├── estoque.json
+├── receita.json
+├── main.py
+└── README.md
+```
+
+---
+
+## Funcionalidades
+
+### Controle de Estoque
+
+- Adicionar ingredientes
+- Remover ingredientes
+- Reduzir quantidade específica
+- Visualizar estoque completo
+
+---
+
+### Sistema de Receitas
+
+- Criar receitas
+- Remover receitas
+- Editar ingredientes
+- Visualizar receitas cadastradas
+
+---
+
+### Produção
+
+Ao produzir uma receita:
+
+- O sistema verifica automaticamente se há ingredientes suficientes
+- Os ingredientes são descontados do estoque
+- Exibe mensagens de erro caso falte algum item
+
+---
+
+## Navegação
+
+O sistema utiliza:
+
+| Tecla | Função |
+|---|---|
+| ↑ | Subir opção |
+| ↓ | Descer opção |
+| Enter | Selecionar |
+
+---
+
+## Sons do sistema
+
+O programa possui feedback sonoro para melhorar a experiência:
+
+- Som de confirmação
+- Som de erro
+- Som de navegação
+
+---
+
+## Instalação
+
+### 1. Clone o repositório
+
+```bash
+git clone https://github.com/seu-usuario/lovestock-cake.git
+```
+
+---
+
+### 2. Entre na pasta
+
+```bash
+cd lovestock-cake
+```
+
+---
+
+### 3. Instale as dependências
+
+```bash
+pip install rich
+```
+
+---
+
+## Executando o projeto
+
+```bash
+python main.py
+```
+
+---
+
+## Armazenamento de dados
+
+Os dados são armazenados automaticamente em arquivos JSON.
+
+### estoque.json
+
+```json
+{
+    "farinha": 5,
+    "ovos": 12,
+    "leite": 2
+}
+```
+
+### receita.json
+
+```json
+{
+    "bolo_chocolate": {
+        "farinha": 1,
+        "ovos": 3,
+        "leite": 0.5
+    }
+}
+```
+
+---
+
+## Tratamento de erros
+
+O sistema possui tratamento para:
+
+- JSON inválido
+- Valores numéricos incorretos
+- Arquivos inexistentes
+- Erros inesperados
+
+---
+
+## Interface
+
+O projeto utiliza a biblioteca Rich para:
+
+- Painéis estilizados
+- Tabelas organizadas
+- Cores no terminal
+- Interface mais moderna
+
+---
+
+## Requisitos
+
+- Windows
+- Python 3.10+
+- Terminal compatível
+
+> O projeto utiliza `winsound` e `msvcrt`, bibliotecas nativas do Windows.
+
+---
+
+## Melhorias futuras
+
+- Sistema de login
+- Histórico de produção
+- Relatórios
+- Interface gráfica
+- Backup automático
+- Cadastro de preços
+- Controle de validade
+
+---
+
+## Autor
+
+Desenvolvido por Lionel Messi.
+
+---
+
+## Licença
+
+Este projeto é livre para estudos e uso pessoal.
