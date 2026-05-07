@@ -1,9 +1,9 @@
-
 import time
 import winsound
 import json
 import os
 import msvcrt
+
 from rich.console import Console
 from rich.table import Table
 from rich.panel import Panel
@@ -79,25 +79,30 @@ def carregar_json(nome_arquivo):
         if not os.path.exists(nome_arquivo):
             return {}
 
-        with open(nome_arquivo, 'r') as arquivo:
+        with open(nome_arquivo, 'r', encoding='utf-8') as arquivo:
             return json.load(arquivo)
 
     except json.JSONDecodeError:
-        beep ('deu ruim')
+        beep('deu ruim')
         console.print(f'[red]JSON inválido em {nome_arquivo}[/red]')
         return {}
 
     except Exception as e:
-        beep ('deu ruim')
+        beep('deu ruim')
         console.print(f'[red]Erro ao carregar: {e}[/red]')
         return {}
 
 
 def salvar_json(nome_arquivo, dados):
-    beep ( 'ok')
-    with open(nome_arquivo, "w") as arquivo:
-        json.dump(dados, arquivo, indent=4)
+    beep('ok')
 
+    with open(nome_arquivo, "w", encoding='utf-8') as arquivo:
+        json.dump(
+            dados,
+            arquivo,
+            ensure_ascii=False,
+            indent=4
+        )
 
 def input_float(mensagem):
     while True:
