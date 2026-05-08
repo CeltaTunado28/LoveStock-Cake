@@ -15,43 +15,48 @@ ARQUIVO_ESTOQUE = "estoque.json"
 ARQUIVO_RECEITAS = "receita.json"
 
 
+def beep(tipo='ok'):
 
-def beep ( tipo = 'ok'):
-    
     if tipo == 'ok':
-        winsound.Beep (1000, 100)
-        winsound.Beep (1300, 150)
-        winsound.Beep (900, 100)
+        winsound.Beep(1000, 100)
+        winsound.Beep(1300, 150)
+        winsound.Beep(900, 100)
 
     elif tipo == 'deu ruim':
-        winsound.Beep (700, 100)
-        time.sleep (0.05)
-        winsound.Beep (500, 120)
-        time.sleep (0.05)
-        winsound.Beep (300, 180)
-    
-    elif tipo == 'click':
-        winsound.Beep (1000,30)
-        time.sleep(0.01)
-        winsound.Beep (800, 20)
+        winsound.Beep(700, 100)
+        time.sleep(0.05)
+        winsound.Beep(500, 120)
+        time.sleep(0.05)
+        winsound.Beep(300, 180)
 
-        
+    elif tipo == 'click':
+        winsound.Beep(1000, 30)
+        time.sleep(0.01)
+        winsound.Beep(800, 20)
 
 
 def menu_setas(opcoes, titulo=''):
     atual = 0
 
     while True:
-        os.system('cls')  
+        os.system('cls')
 
         linhas = []
+
         for i, opcao in enumerate(opcoes):
+
             if i == atual:
                 linhas.append(f'[#ff69b4] ❤️   {opcao}[/]')
             else:
                 linhas.append(f' {opcao}')
 
-        console.print(Panel('\n'.join(linhas), title=titulo, style="#e7b7cf"))
+        console.print(
+            Panel(
+                '\n'.join(linhas),
+                title=titulo,
+                style="#e7b7cf"
+            )
+        )
 
         tecla = msvcrt.getch()
 
@@ -60,22 +65,23 @@ def menu_setas(opcoes, titulo=''):
 
             if tecla == b'H':
                 atual -= 1
-                beep ('click')
+                beep('click')
 
             elif tecla == b'P':
                 atual += 1
-                beep ('click')
+                beep('click')
 
         elif tecla == b'\r':
-            beep ('ok')
+            beep('ok')
             return atual
-           
+
         atual %= len(opcoes)
 
 
-
 def carregar_json(nome_arquivo):
+
     try:
+
         if not os.path.exists(nome_arquivo):
             return {}
 
@@ -94,9 +100,9 @@ def carregar_json(nome_arquivo):
 
 
 def salvar_json(nome_arquivo, dados):
-    beep('ok')
 
     with open(nome_arquivo, "w", encoding='utf-8') as arquivo:
+
         json.dump(
             dados,
             arquivo,
@@ -104,18 +110,33 @@ def salvar_json(nome_arquivo, dados):
             indent=4
         )
 
+    beep('ok')
+
+
 def input_float(mensagem):
+
     while True:
+
         try:
             valor = Prompt.ask(mensagem)
-            return float(valor.replace(",", "."))
+            numero = float(valor.replace(",", "."))
+
+            if numero <= 0:
+                beep('deu ruim')
+                console.print('[red]Digite um número maior que zero[/red]')
+                continue
+
+            return numero
+
         except:
-            beep ('deu ruim')
+            beep('deu ruim')
             console.print('[red]Número inválido[/red]')
 
 
 def mostrar_estoque(estoque):
+
     tabela = Table(title='Estoque')
+
     tabela.add_column('Ingrediente')
     tabela.add_column('Quantidade')
 
@@ -123,141 +144,209 @@ def mostrar_estoque(estoque):
         console.print('[yellow]Estoque vazio[/yellow]')
         return
 
-    for i, q in estoque.items():
-        tabela.add_row(i, str(q))
+    for ingrediente, quantidade in estoque.items():
+        tabela.add_row(ingrediente, str(quantidade))
 
     console.print(tabela)
 
 
 def menu_estoque():
+
     while True:
+
         estoque = carregar_json(ARQUIVO_ESTOQUE)
 
         opcao = menu_setas(
-            ['Adicionar', 'Remover total', 'Remover quantidade', 'Ver estoque', 'Voltar'],
+            [
+                'Adicionar',
+                'Remover total',
+                'Remover quantidade',
+                'Ver estoque',
+                'Voltar'
+            ],
             'ESTOQUE'
         )
 
         if opcao == 0:
+
             nome = Prompt.ask('Ingrediente').strip().lower()
-            q = input_float('Quantidade')
-            estoque[nome] = estoque.get(nome, 0) + q
+            quantidade = input_float('Quantidade')
+
+            estoque[nome] = estoque.get(nome, 0) + quantidade
+
             salvar_json(ARQUIVO_ESTOQUE, estoque)
-            beep ('ok')
 
         elif opcao == 1:
+
             nome = Prompt.ask('Ingrediente').strip().lower()
+
             if nome in estoque:
+
                 del estoque[nome]
+
                 salvar_json(ARQUIVO_ESTOQUE, estoque)
-                beep ('ok')
+
+            else:
+                beep('deu ruim')
+                console.print('[red]Ingrediente não encontrado[/red]')
+                input('Enter...')
 
         elif opcao == 2:
+
             nome = Prompt.ask('Ingrediente').strip().lower()
+
             if nome in estoque:
-                q = input_float('Quantidade')
-                estoque[nome] -= q
+
+                quantidade = input_float('Quantidade')
+
+                estoque[nome] -= quantidade
+
                 if estoque[nome] <= 0:
-                    del estoque[nome]  
+                    del estoque[nome]
+
                 salvar_json(ARQUIVO_ESTOQUE, estoque)
-                beep ('ok')
+
+            else:
+                beep('deu ruim')
+                console.print('[red]Ingrediente não encontrado[/red]')
+                input('Enter...')
 
         elif opcao == 3:
-            mostrar_estoque(estoque)
-            input('Pressione Enter...')
-            beep ('ok')
 
+            mostrar_estoque(estoque)
+
+            input('Pressione Enter...')
+
+            beep('ok')
 
         elif opcao == 4:
             break
 
 
 def mostrar_receitas(receitas):
+
     if not receitas:
         console.print('[yellow]Nenhuma receita[/yellow]')
-        beep ('deu ruim')
+        beep('deu ruim')
         return
 
     for nome, ingredientes in receitas.items():
+
         tabela = Table(title=nome)
+
         tabela.add_column('Ingrediente')
         tabela.add_column('Quantidade')
 
-        for i, q in ingredientes.items():
-            tabela.add_row(i, str(q))
+        for ingrediente, quantidade in ingredientes.items():
+            tabela.add_row(ingrediente, str(quantidade))
 
         console.print(tabela)
 
 
 def menu_receitas():
+
     while True:
+
         receitas = carregar_json(ARQUIVO_RECEITAS)
 
         opcao = menu_setas(
-            ['Criar', 'Remover', 'Editar', 'Ver', 'Voltar'],
+            [
+                'Criar',
+                'Remover',
+                'Editar',
+                'Ver',
+                'Voltar'
+            ],
             'RECEITAS'
         )
 
         if opcao == 0:
+
             nome = Prompt.ask('Nome').strip().lower()
-            nova = {}
+
+            nova_receita = {}
 
             while True:
-                ing = Prompt.ask('Ingrediente (fim p/ sair)').strip().lower()
-                if ing == 'fim':
-                    break
-                q = input_float('Quantidade')
-                nova[ing] = q
 
-            receitas[nome] = nova
+                ingrediente = Prompt.ask(
+                    'Ingrediente (fim p/ sair)'
+                ).strip().lower()
+
+                if ingrediente == 'fim':
+                    break
+
+                quantidade = input_float('Quantidade')
+
+                nova_receita[ingrediente] = quantidade
+
+            receitas[nome] = nova_receita
+
             salvar_json(ARQUIVO_RECEITAS, receitas)
-            beep ('ok')
 
         elif opcao == 1:
+
             nomes = list(receitas.keys())
+
             if not nomes:
                 console.print('[yellow]Sem receitas[/yellow]')
                 input('Enter...')
                 continue
 
-            i = menu_setas(nomes, 'Remover receita')
-            del receitas[nomes[i]]
+            indice = menu_setas(nomes, 'Remover receita')
+
+            del receitas[nomes[indice]]
+
             salvar_json(ARQUIVO_RECEITAS, receitas)
-            beep ('ok')
 
         elif opcao == 2:
+
             nomes = list(receitas.keys())
+
             if not nomes:
                 console.print('[yellow]Sem receitas[/yellow]')
                 input('Enter...')
                 continue
 
-            i = menu_setas(nomes, 'Editar receita')
-            nome = nomes[i]
-            receita = receitas[nome]
+            indice = menu_setas(nomes, 'Editar receita')
+
+            nome_receita = nomes[indice]
+
+            receita = receitas[nome_receita]
 
             ingredientes = list(receita.keys())
+
             if not ingredientes:
                 console.print('[yellow]Sem ingredientes[/yellow]')
                 input('Enter...')
-                beep ('ok')
                 continue
 
-            j = menu_setas(ingredientes, 'Escolha ingrediente')
-            ing = ingredientes[j]
+            ingredientes.append('Voltar')
 
-            q = input_float('Remover quanto?')
-            receita[ing] -= q
+            indice_ingrediente = menu_setas(
+                ingredientes,
+                'Escolha ingrediente'
+            )
 
-            if receita[ing] <= 0:
-                del receita[ing]
+            if ingredientes[indice_ingrediente] == 'Voltar':
+                continue
 
-            receitas[nome] = receita
+            ingrediente = ingredientes[indice_ingrediente]
+
+            quantidade = input_float('Remover quanto?')
+
+            receita[ingrediente] -= quantidade
+
+            if receita[ingrediente] <= 0:
+                del receita[ingrediente]
+
+            receitas[nome_receita] = receita
+
             salvar_json(ARQUIVO_RECEITAS, receitas)
-            beep ('ok')
 
         elif opcao == 3:
+
             mostrar_receitas(receitas)
+
             input('Pressione Enter...')
 
         elif opcao == 4:
@@ -265,53 +354,83 @@ def menu_receitas():
 
 
 def menu_producao():
+
     estoque = carregar_json(ARQUIVO_ESTOQUE)
     receitas = carregar_json(ARQUIVO_RECEITAS)
 
     if not receitas:
         console.print('[yellow]Sem receitas[/yellow]')
-        beep ('deu ruim')
+        beep('deu ruim')
         input('Enter...')
         return
 
     nomes = list(receitas.keys())
 
-    i = menu_setas(nomes, 'Escolha receita')
-    nome = nomes[i]
-    receita = receitas[nome]
+    nomes.append('Voltar')
 
-    qtd = input_float('Quantidade')
+    indice = menu_setas(
+        nomes,
+        'Escolha receita'
+    )
 
-    for ing, q in receita.items():
-        if estoque.get(ing, 0) < q * qtd:
-            console.print(f'[red]Falta {ing}[/red]')
-            beep ('deu ruim')
+    if nomes[indice] == 'Voltar':
+        return
+
+    nome_receita = nomes[indice]
+
+    receita = receitas[nome_receita]
+
+    quantidade = input_float('Quantidade')
+
+    for ingrediente, valor in receita.items():
+
+        if estoque.get(ingrediente, 0) < valor * quantidade:
+
+            console.print(
+                f'[red]Falta {ingrediente}[/red]'
+            )
+
+            beep('deu ruim')
+
             input('Enter...')
+
             return
 
-    for ing, q in receita.items():
-        estoque[ing] -= q * qtd
+    for ingrediente, valor in receita.items():
+        estoque[ingrediente] -= valor * quantidade
 
     salvar_json(ARQUIVO_ESTOQUE, estoque)
+
     console.print('[green]Produção concluída[/green]')
-    beep ('ok')
+
+    beep('ok')
+
     input('Enter...')
 
 
-
 def main():
+
     while True:
+
         opcao = menu_setas(
-            ['Estoque', 'Receitas', 'Produção', 'Sair'],
-            "LoveStock Cake"
+            [
+                'Estoque',
+                'Receitas',
+                'Produção',
+                'Sair'
+            ],
+            'LoveStock Cake'
         )
 
         if opcao == 0:
             menu_estoque()
+
         elif opcao == 1:
             menu_receitas()
+
         elif opcao == 2:
             menu_producao()
+
         elif opcao == 3:
             break
 
