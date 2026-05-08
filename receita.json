@@ -1,22 +1,22 @@
 {
-    "bolo_simples": {
-      "farinha": 200,
-      "açúcar": 150,
-      "ovos": 3,
-      "leite": 200,
-      "fermento": 10
+    "Bolo_Simples": {
+        "Farinha": 200,
+        "Açúcar": 150,
+        "Ovos": 3,
+        "Leite": 200,
+        "Fermento": 10
     },
-    "bolo_chocolate": {
-      "farinha": 200,
-      "açúcar": 150,
-      "ovos": 3,
-      "leite": 200,
-      "chocolate": 100,
-      "fermento": 10
+    "Bolo_Chocolate": {
+        "Farinha": 200,
+        "Açúcar": 150,
+        "Ovos": 3,
+        "Leite": 200,
+        "Chocolate": 100,
+        "Fermento": 10
     },
-    "brigadeiro": {
-      "leite": 200,
-      "chocolate": 150,
-      "manteiga": 20
+    "Brigadeiro": {
+        "Leite": 200,
+        "Chocolate": 150,
+        "Manteiga": 20
     }
 }
