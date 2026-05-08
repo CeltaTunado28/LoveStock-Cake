@@ -1,9 +1,9 @@
 {
-      "Farinha": 5000,
-      "Açúcar": 4000,
-      "Ovos": 100,
-      "Leite": 3000,
-      "Fermento": 200,
-      "Chocolate": 1500,
-      "Manteiga": 500
+      "farinha": 5000,
+      "açúcar": 4000,
+      "ovos": 100,
+      "leite": 3000,
+      "fermento": 200,
+      "chocolate": 1500,
+      "manteiga": 500
 }
