@@ -49,6 +49,7 @@ def menu_setas(opcoes, titulo=''):
 
             if i == atual:
                 linhas.append(f'[#ff69b4] ❤️   {opcao}[/]')
+
             else:
                 linhas.append(f' {opcao}')
 
@@ -175,7 +176,6 @@ def mostrar_estoque(estoque):
     tabela = Table(title='Estoque')
 
     tabela.add_column('Ingrediente')
-
     tabela.add_column('Quantidade')
 
     if not estoque:
@@ -280,6 +280,7 @@ def menu_estoque():
                 )
 
                 if estoque[nome] <= 0:
+
                     del estoque[nome]
 
                 salvar_json(
@@ -306,6 +307,7 @@ def menu_estoque():
             beep('ok')
 
         elif opcao == 4:
+
             break
 
 
@@ -328,7 +330,6 @@ def mostrar_receitas(receitas):
         )
 
         tabela.add_column('Ingrediente')
-
         tabela.add_column('Quantidade')
 
         for ingrediente, quantidade in ingredientes.items():
@@ -375,6 +376,7 @@ def menu_receitas():
                 ).strip().lower()
 
                 if ingrediente == 'fim':
+
                     break
 
                 quantidade = input_float(
@@ -461,6 +463,7 @@ def menu_receitas():
             )
 
             if ingredientes[indice_ingrediente] == 'Voltar':
+
                 continue
 
             ingrediente = ingredientes[
@@ -479,6 +482,7 @@ def menu_receitas():
             )
 
             if receita[ingrediente] <= 0:
+
                 del receita[ingrediente]
 
             receitas[nome] = receita
@@ -495,6 +499,7 @@ def menu_receitas():
             input('Pressione Enter...')
 
         elif opcao == 4:
+
             break
 
 
@@ -530,6 +535,7 @@ def menu_producao():
     )
 
     if nomes[indice] == 'Voltar':
+
         return
 
     nome = nomes[indice]
@@ -577,6 +583,7 @@ def menu_producao():
         )
 
         if estoque[ingrediente] <= 0:
+
             del estoque[ingrediente]
 
     salvar_json(
@@ -608,17 +615,22 @@ def main():
         )
 
         if opcao == 0:
+
             menu_estoque()
 
         elif opcao == 1:
+
             menu_receitas()
 
         elif opcao == 2:
+
             menu_producao()
 
         elif opcao == 3:
+
             break
 
 
 if __name__ == '__main__':
+
     main()
