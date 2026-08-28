@@ -218,7 +218,7 @@ O projeto utiliza a biblioteca Rich para:
 
 ## Autor
 
-Desenvolvido por Lionel Messi.
+Desenvolvido por Lionel Gonçalves Dantas e Daniel de jesus.
 
 ---
 
