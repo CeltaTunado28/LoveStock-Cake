@@ -194,6 +194,50 @@ O projeto utiliza a biblioteca Rich para:
 
 ---
 
+## Exemplos Visuais
+
+Abaixo estão alguns exemplos da interface e das principais funcionalidades do LoveStock Cake.
+
+### Menu Principal
+
+<p align="center">
+  <img src="imagens/confeitaria0.png" alt="Menu principal do LoveStock Cake" width="700">
+</p>
+
+O menu principal permite acessar as funcionalidades de controle de estoque, receitas e produção de forma simples e intuitiva.
+
+---
+
+### Controle de Estoque
+
+<p align="center">
+  <img src="imagens/confeitaria1.png" alt="Tela de controle de estoque" width="700">
+</p>
+
+Nesta tela, o usuário pode visualizar e gerenciar os ingredientes disponíveis, adicionando, removendo ou alterando suas quantidades.
+
+---
+
+### Sistema de Receitas
+
+<p align="center">
+  <img src="imagens/confeitaria2.png" alt="Tela do sistema de receitas" width="700">
+</p>
+
+O sistema permite cadastrar, editar, remover e visualizar receitas, juntamente com os ingredientes necessários para cada produção.
+
+---
+
+### Produção de Receitas
+
+<p align="center">
+  <img src="imagens/confeitaria3.png" alt="Tela de produção de receitas" width="700">
+</p>
+
+Ao selecionar uma receita e informar a quantidade desejada, o sistema verifica automaticamente a disponibilidade dos ingredientes e realiza o desconto no estoque.
+
+---
+
 ## Requisitos
 
 - Windows
