@@ -33,6 +33,12 @@ O sistema permite:
 ```bash
 LoveStock-Cake/
 │
+├── imagens/
+│   ├── confeitaria0.png
+│   ├── confeitaria1.png
+│   ├── confeitaria2.png
+│   └── confeitaria3.png
+│
 ├── estoque.json
 ├── receita.json
 ├── main.py
