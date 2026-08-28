@@ -201,7 +201,7 @@ Abaixo estão alguns exemplos da interface e das principais funcionalidades do L
 ### Menu Principal
 
 <p align="center">
-  <img src="imagens/confeitaria0.png" alt="Menu principal do LoveStock Cake" width="700">
+<img src="./imagens/confeitaria0.png" alt="Menu principal do LoveStock Cake" width="100%">
 </p>
 
 O menu principal permite acessar as funcionalidades de controle de estoque, receitas e produção de forma simples e intuitiva.
@@ -211,7 +211,7 @@ O menu principal permite acessar as funcionalidades de controle de estoque, rece
 ### Controle de Estoque
 
 <p align="center">
-  <img src="imagens/confeitaria1.png" alt="Tela de controle de estoque" width="700">
+<img src="./imagens/confeitaria0.png" alt="Sistema de controle de estoque" width="100%">
 </p>
 
 Nesta tela, o usuário pode visualizar e gerenciar os ingredientes disponíveis, adicionando, removendo ou alterando suas quantidades.
@@ -221,7 +221,7 @@ Nesta tela, o usuário pode visualizar e gerenciar os ingredientes disponíveis,
 ### Sistema de Receitas
 
 <p align="center">
-  <img src="imagens/confeitaria2.png" alt="Tela do sistema de receitas" width="700">
+  <img src=".imagens/confeitaria2.png" alt="Tela do sistema de receitas" width="100%">
 </p>
 
 O sistema permite cadastrar, editar, remover e visualizar receitas, juntamente com os ingredientes necessários para cada produção.
@@ -231,7 +231,7 @@ O sistema permite cadastrar, editar, remover e visualizar receitas, juntamente c
 ### Produção de Receitas
 
 <p align="center">
-  <img src="imagens/confeitaria3.png" alt="Tela de produção de receitas" width="700">
+  <img src=".imagens/confeitaria3.png" alt="Tela de produção de receitas" width="100%">
 </p>
 
 Ao selecionar uma receita e informar a quantidade desejada, o sistema verifica automaticamente a disponibilidade dos ingredientes e realiza o desconto no estoque.
