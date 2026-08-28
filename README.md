@@ -207,7 +207,7 @@ Abaixo estão alguns exemplos da interface e das principais funcionalidades do L
 ### Menu Principal
 
 <p align="center">
-![Menu principal](./imagens/confeitaria0.png)
+  <img src="imagens/confeitaria0.png" alt="Menu Principal">
 </p>
 
 O menu principal permite acessar as funcionalidades de controle de estoque, receitas e produção de forma simples e intuitiva.
