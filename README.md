@@ -33,7 +33,7 @@ O sistema permite:
 ```bash
 LoveStock-Cake/
 │
-├── imagens/
+├── imagens_confeitaria/
 │   ├── confeitaria0.png
 │   ├── confeitaria1.png
 │   ├── confeitaria2.png
