@@ -207,7 +207,7 @@ Abaixo estão alguns exemplos da interface e das principais funcionalidades do L
 ### Menu Principal
 
 <p align="center">
-  <img src="imagens/confeitaria0.png" alt="Menu Principal">
+  <img src="imagens_confeitaria/confeitaria0.png" alt="Menu Principal">
 </p>
 
 O menu principal permite acessar as funcionalidades de controle de estoque, receitas e produção de forma simples e intuitiva.
@@ -217,7 +217,7 @@ O menu principal permite acessar as funcionalidades de controle de estoque, rece
 ### Controle de Estoque
 
 <p align="center">
-![Menu principal](./imagens/confeitaria1.png)
+  <img src="imagens_confeitaria/confeitaria1.png" alt="Menu Principal">
 </p>
 
 Nesta tela, o usuário pode visualizar e gerenciar os ingredientes disponíveis, adicionando, removendo ou alterando suas quantidades.
@@ -227,7 +227,7 @@ Nesta tela, o usuário pode visualizar e gerenciar os ingredientes disponíveis,
 ### Sistema de Receitas
 
 <p align="center">
-  ![Menu principal](./imagens/confeitaria2.png)
+  <img src="imagens_confeitaria/confeitaria2.png" alt="Menu Principal">
 </p>
 
 O sistema permite cadastrar, editar, remover e visualizar receitas, juntamente com os ingredientes necessários para cada produção.
@@ -237,7 +237,7 @@ O sistema permite cadastrar, editar, remover e visualizar receitas, juntamente c
 ### Produção de Receitas
 
 <p align="center">
-  ![Menu principal](./imagens/confeitaria3.png)
+  <img src="imagens_confeitaria/confeitaria3.png" alt="Menu Principal">
 </p>
 
 Ao selecionar uma receita e informar a quantidade desejada, o sistema verifica automaticamente a disponibilidade dos ingredientes e realiza o desconto no estoque.
